@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "providers": [
+    {
+      "name": "local",
+      "tier": 1,
+      "model": "env:LOCAL_JUDGE_MODEL",
+      "primitives": ["CHOICE", "SCORE", "BOOLEAN_PROBABILITY", "RANK", "UTILITY", "RISK"],
+      "context_bytes": 6000,
+      "local": true,
+      "enabled": true,
+      "input_usd_per_million": 0,
+      "output_usd_per_million": 0,
+      "independent_group": "local-model",
+      "adapter": "openai_compatible",
+      "options": {
+        "base_url": "http://127.0.0.1:8080/v1",
+        "api_key_required": false,
+        "json_mode": false
+      }
+    },
+    {
+      "name": "hosted",
+      "tier": 2,
+      "model": "env:HOSTED_JUDGE_MODEL",
+      "primitives": ["CHOICE", "SCORE", "BOOLEAN_PROBABILITY", "RANK", "UTILITY", "RISK"],
+      "context_bytes": 12000,
+      "local": false,
+      "enabled": true,
+      "input_usd_per_million": 0.5,
+      "output_usd_per_million": 1.5,
+      "independent_group": "hosted-a",
+      "adapter": "openai_compatible",
+      "options": {"api_key_env": "OPENAI_API_KEY", "base_url_env": "OPENAI_BASE_URL"}
+    },
+    {
+      "name": "reasoning",
+      "tier": 4,
+      "model": "env:REASONING_JUDGE_MODEL",
+      "primitives": ["CHOICE", "SCORE", "BOOLEAN_PROBABILITY", "RANK", "UTILITY", "RISK"],
+      "context_bytes": 8000,
+      "local": false,
+      "enabled": false,
+      "input_usd_per_million": 3,
+      "output_usd_per_million": 15,
+      "independent_group": "hosted-b",
+      "adapter": "anthropic",
+      "options": {"api_key_env": "ANTHROPIC_API_KEY"}
+    }
+  ],
+  "coworker_providers": ["local"],
+  "limits": {
+    "max_calls": 3,
+    "max_seconds": 60,
+    "max_cost_usd": 0.05,
+    "context_bytes": 12000,
+    "escalation_bytes": 6000
+  }
+}

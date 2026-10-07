@@ -1,0 +1,20 @@
+{
+  "requesting_agent": "BUILDER",
+  "capacity": "business",
+  "decision_id": "example-investigation-1",
+  "state": {
+    "facts": [
+      "An internal service health check consistently fails.",
+      "The dashboard remains usable; its requested label changes are cosmetic.",
+      "The next step is investigation only, with no production changes."
+    ]
+  },
+  "question": "Which task should receive the next engineering investigation?",
+  "options": {
+    "service": "Investigate the failing service",
+    "labels": "Rename dashboard labels",
+    "insufficient": "Need additional evidence"
+  },
+  "stakes": "moderate",
+  "decision_type": "routing"
+}

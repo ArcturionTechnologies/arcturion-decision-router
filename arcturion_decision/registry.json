@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "providers": [],
+  "coworker_providers": [],
+  "limits": {
+    "max_calls": 3,
+    "max_seconds": 60,
+    "max_cost_usd": 0.05,
+    "context_bytes": 12000,
+    "escalation_bytes": 6000
+  }
+}

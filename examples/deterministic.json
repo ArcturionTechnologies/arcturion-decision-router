@@ -1,0 +1,11 @@
+{
+  "requesting_agent": "BUILDER",
+  "capacity": "business",
+  "decision_id": "example-queue-limit-1",
+  "state": {"queue_depth": 4},
+  "question": "Is queue depth within the limit?",
+  "primitive": "BOOLEAN_PROBABILITY",
+  "constraints": {
+    "deterministic": {"op": "threshold", "field": "queue_depth", "operator": "lte", "value": 10}
+  }
+}

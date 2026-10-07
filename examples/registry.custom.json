@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "providers": [
+    {
+      "name": "keywords",
+      "tier": 2,
+      "model": "keyword-overlap",
+      "primitives": ["CHOICE"],
+      "context_bytes": 12000,
+      "local": true,
+      "enabled": true,
+      "independent_group": "keywords",
+      "adapter": "examples.keyword_adapter:make"
+    }
+  ],
+  "coworker_providers": [],
+  "limits": {"max_calls": 3, "max_seconds": 60, "max_cost_usd": 0.05, "context_bytes": 12000, "escalation_bytes": 6000}
+}

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arcturion-decision-router"
+version = "0.1.0"
+description = "A bounded, advisory decision router: deterministic rules first, optional pluggable model judges, budgets, and a private receipt ledger"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arcturion Technologies"}]
+
+[project.scripts]
+arcturion-decision = "arcturion_decision.cli:main"
+
+[tool.setuptools]
+packages = ["arcturion_decision"]
+
+[tool.setuptools.package-data]
+arcturion_decision = ["registry.json"]
